@@ -4,13 +4,21 @@ import { makeMove, initialState, type GameState } from './tictactoe'
 
 
 function App() {
-  console.log(initialState)
+  const [gameState, setGameState] = useState(initialState)
+
+  function makeGameMove(cellIndex: number) {
+    setGameState(prev => makeMove(prev, prev.player, cellIndex))
+  }
+
   return (
     <>
       <h1>👾 Tic Tac Toe 👾</h1>
       <div className="grid grid-cols-3 aspect-square">
-        {initialState.board.map(b =>
-          <button onClick={(makeMove)} className="bg-green-100 m-1 border">{b}</button>)}
+        {gameState.board.map((cell, cellIndex) =>
+          <button
+            onClick={() => makeGameMove(cellIndex)}
+            className="bg-green-100 m-1 border">{cell}
+          </button>)}
       </div>
     </>
   )
