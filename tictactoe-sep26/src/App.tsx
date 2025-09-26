@@ -19,6 +19,8 @@ function App() {
             onClick={() => makeGameMove(cellIndex)}
             className="bg-green-100 m-1 border">{cell}
           </button>)}
+        <div>Your Turn: {gameState.player}</div>
+        {(gameState.status === "win") && <div>You won {gameState.player}🥇</div>}
       </div>
     </>
   )
