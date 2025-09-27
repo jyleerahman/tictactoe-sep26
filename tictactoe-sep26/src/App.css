@@ -1,1 +1,24 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'SuperMario';
+    src: url('/font/super-mario-script-3-1402.ttf');
+    font-display: swap;
+}
+
+body {
+    font-family: 'SuperMario';
+    background-image: url("/supermario-bg.jpg");
+    background-size: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+button {
+    border-radius: 0;
+    background-color: #BA5525;
+    font-size: 30px;
+    border-style: solid;
+}

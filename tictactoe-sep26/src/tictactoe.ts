@@ -1,5 +1,5 @@
-type Cell = "X" | "O" | null
-type Player = "X" | "O"
+type Cell = "🍄" | "🌟" | null
+type Player = "🍄" | "🌟"
 type Board = Cell[]
 type Status = "in_progress" | "win" | "draw"
 type Winner = Player | null
@@ -13,12 +13,12 @@ type GameState = {
 
 const initialState: GameState = {
     board: [null, null, null, null, null, null, null, null, null],
-    player: "O",
+    player: "🌟",
     status: "in_progress",
     winner: null
 }
 
-function makeMove(game: GameState, player: Player, move: number) {
+function makeMove(game: GameState, player: Player, move: number): GameState {
     if (game.board[move] !== null) return game
     if (game.status !== "in_progress") return game
 
@@ -28,7 +28,7 @@ function makeMove(game: GameState, player: Player, move: number) {
         status: game.status
     }
 
-    newGame.board[move] = player === 'O' ? 'X' : 'O'
+    newGame.board[move] = player === '🌟' ? '🍄' : '🌟'
 
     function checkWinning() {
         const winningLines = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
@@ -42,7 +42,7 @@ function makeMove(game: GameState, player: Player, move: number) {
         if (newGame.board.every(cell => cell != null)) newGame.status = "draw"
         if (newGame.status != "win" && "draw") newGame.status = "in_progress"
     }
-    newGame.player = newGame.player === "O" ? "X" : "O"
+    newGame.player = newGame.player === "🌟" ? "🍄" : "🌟"
     checkWinning()
 
 
