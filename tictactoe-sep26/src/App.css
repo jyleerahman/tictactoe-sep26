@@ -17,6 +17,7 @@ body {
 }
 
 button {
+    border: black 3px;
     border-radius: 0;
     background-color: #BA5525;
     font-size: 30px;
